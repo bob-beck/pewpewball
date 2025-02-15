@@ -196,6 +196,135 @@ sub figure_1887($$$$$)
     $gfx->paint();
 }
 
+sub make1855Target($$$$$) {
+    my($paper, $class, $orientation, $trim, $centre) = @_;
+
+    my $pdf  = PDF::API2->new;
+
+    # Try to prevent scaling in viewers which may turn into scaling when
+    # printed from viewers (i.e. a browser) instead of sending the file
+    # directly to a printer.
+    $pdf->preferences(-printscalingnone=>1);
+
+    # Set our page boundaries to the correct paper size, with repeated
+    # hints to attempt to ensure the randomly written browser and
+    # printer software stacks that will be touching this will
+    # hopefully be convinced to not pervert it themselves. We probably
+    # can't win 100% of the time, but it would be nice if it is usually
+    # correct in the common cases with the correct paper size selected.
+    $pdf->mediabox($paper);
+    my $page = $pdf  -> page;
+    $page->boundaries(media => $paper, trim => $trim * 72);
+    my ($x1, $y1, $x2, $y2) = $page->boundaries('media');
+
+    if ($orientation eq "Landscape") {
+	# make it landscape
+	$pdf->mediabox($y1, $x1, $y2, $x2);
+	$page->boundaries(media => [$y1, $x1, $y2, $x2], trim => $trim * 72);
+    }
+    ($x1, $y1, $x2, $y2) = $page->boundaries('trim');
+
+    my $gfx  = $page -> graphics();
+    my $txt  = $page -> text;
+
+    my $real_width = 24 * 72;
+    my $real_height = 72 * 72;
+    my $real_bull_radius = 4 * 72;
+    my $real_magpie_radius = 12 * 72;
+    my $real_magpie_thickness = 0.75 * 72;
+
+    my ($scale_width, $scale_height) =
+	scaled_dimensions($x2 - $x1, $y2 - $y1, $real_width, $real_height);
+    my $image_scale = $scale_height / $real_height;
+    if ($centre) {
+	# scale only centre of target
+	($scale_width, $scale_height) =
+	    scaled_dimensions($x2 - $x1, $y2 - $y1, $real_magpie_radius * 2, $real_magpie_radius * 2);
+	$image_scale = $scale_height / ($real_magpie_radius * 2);
+    }
+
+    my $width_inches = round($scale_width / 72, 1);
+    my $height_inches = round($scale_height / 72, 1);
+
+    my $delta_h = ($y2 - $y1 - $scale_height) / 2;
+    my $delta_w = ($x2 - $x1 - $scale_width) / 2;
+
+    # Find the centre of the page.
+    my $midx = ($x2 - $x1) / 2 + $x1;
+    my $midy = ($y2 - $y1) / 2 + $y1;
+
+    # Put text on target
+    $txt -> fillcolor("grey");
+    $txt -> strokecolor("grey");
+    $txt->font($pdf->corefont('Helvetica Bold'), 10);
+    $txt->position($trim ?  $x1 + 10 : $x1 + 30, $trim ? $y2 - 10 : $y2 - 30);
+
+    my $tinch = "24 X 72";
+
+    $txt->text ("pewpewball.com 1855 musketry target, $width_inches X $height_inches inches, original $tinch.");
+    $txt->font($pdf->corefont('Helvetica'), 10);
+    $txt->crlf();
+    if ($centre == 1) {
+	my $backing_width = round(($real_width * $image_scale) / 72, 2);
+	my $backing_height = round(($real_height * $image_scale) / 72, 2);
+        $txt->text ("This target centre should be in the centre of a $backing_width X $backing_height inch white scoring outer paper");
+	$txt->crlf();
+    }
+    $txt->font($pdf->corefont('Helvetica'), 8);
+    shootat($txt, 100, $image_scale);
+    shootat($txt, 200, $image_scale);
+    shootat($txt, 300, $image_scale);
+    shootat($txt, 500, $image_scale);
+    shootat($txt, 900, $image_scale);
+
+    # Draw bull and magpie we use a grey ring to be
+    # visible on both the black and white portions
+    # of the target
+    $gfx -> strokecolor("black");
+    $gfx -> fillcolor("black");
+
+    my $magpie_radius = $real_magpie_radius * $image_scale;
+    $gfx -> circle( $midx, $midy, $magpie_radius);
+    $gfx -> paint();
+
+    $gfx -> strokecolor("white");
+    $gfx -> fillcolor("white");
+    $magpie_radius = ($real_magpie_radius - $real_magpie_thickness) * $image_scale;
+    $gfx -> circle( $midx, $midy, $magpie_radius);
+    $gfx -> paint();
+
+    $gfx -> strokecolor("black");
+    $gfx -> fillcolor("black");
+    
+    my $bull_radius = $real_bull_radius * $image_scale;
+    $gfx -> circle( $midx, $midy, $bull_radius);
+    $gfx -> paint();
+
+    if ($centre == 0) { 
+	# Draw lines for outer target boundary, if needed when the paper is taller
+	# or wider than the correct target boundary maintaining the correct scale.
+	if ($delta_h != 0) {
+	    $gfx->move($x1, $y1 + $delta_h);
+	    $gfx->line($x2, $y1 + $delta_h);
+	    $gfx->stroke();
+	    $gfx->move($x1, $y2 - $delta_h);
+	    $gfx->line($x2, $y2 - $delta_h);
+	    $gfx->stroke();
+	}
+	if ($delta_w != 0) {
+	    $gfx->move($x1 + $delta_w, $y1);
+	    $gfx->line($x1 + $delta_w, $y2);
+	    $gfx->stroke();
+	    $gfx->move($x2 - $delta_w, $y1);
+	    $gfx->line($x2 - $delta_w, $y2);
+	    $gfx->stroke();
+	}
+    }
+
+    return $pdf->to_string();
+    $pdf -> end;
+}
+
 sub make1887Target($$$$) {
     my($paper, $class, $orientation, $trim) = @_;
 
@@ -660,6 +789,9 @@ my $Bottom = $cgi->param('Bottom');
 my $Centre = $cgi->param('Centre'); 
 
 my $pdfstring;
+if ($Year == 1855) {
+    $pdfstring = make1855Target($Paper, $Class, $Orientation, $Trim, $Centre);
+}
 if ($Year == 1887) {
     $pdfstring = make1887Target($Paper, $Class, $Orientation, $Trim);
 }
