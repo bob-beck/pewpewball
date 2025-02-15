@@ -7,7 +7,7 @@ generating programs.
 
 Static pages are in the [html](html) directories.
 
-Pull requests or issues are encouraged if you's like something fixed/changed/added.
+Pull requests or issues are encouraged if you would like something fixed/changed/added.
 
 
 
