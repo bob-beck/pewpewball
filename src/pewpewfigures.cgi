@@ -431,7 +431,7 @@ sub make1891Target($$$$$) {
     $txt->position($trim ?  $x1 + 10 : $x1 + 30, $trim ? $y2 - 10 : $y2 - 30);
 
     my $tclass = "third";
-    my $tinch = "72 X 48";
+    my $tinch = "48 X 48";
     if ($class == 2) {
 	$tclass = "second";
 	$tinch = "72 X 72";
@@ -444,8 +444,8 @@ sub make1891Target($$$$$) {
     $txt->font($pdf->corefont('Helvetica'), 10);
     $txt->crlf();
     if ($centre == 1) {
-	my $backing_width = round(($real_height * $image_scale) / 72, 2);
-	my $backing_height = round(($real_width * $image_scale) / 72, 2);
+	my $backing_width = round(($real_width * $image_scale) / 72, 2);
+	my $backing_height = round(($real_height * $image_scale) / 72, 2);
         $txt->text ("This target centre should be in the centre of a $backing_width X $backing_height inch white scoring outer paper");
 	$txt->crlf();
     }
