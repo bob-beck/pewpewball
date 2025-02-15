@@ -279,7 +279,7 @@ sub make1887Target($$$$) {
     $txt->position($trim ?  $x1 + 10 : $x1 + 30, $trim ? $y2 - 10 : $y2 - 30);
 
     my $tclass = "third";
-    my $tinch = "72 X 48";
+    my $tinch = "48 X 72";
     if ($class == 2) {
 	$tclass = "second";
 	$tinch = "72 X 72";
