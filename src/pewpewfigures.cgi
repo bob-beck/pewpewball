@@ -384,7 +384,7 @@ sub make1891Target($$$$$) {
     my $txt  = $page -> text;
 
     my $real_width = 48 * 72;
-    my $real_height = 72 * 72;
+    my $real_height = 48 * 72;
     if ($class == 2) {
 	$real_width = 72 * 72;
 	$real_height = 72 * 72;
