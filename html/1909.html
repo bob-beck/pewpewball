@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Make 1909 Musketry Targets!</title>
+</head>
+
+<body>
+  <h2>Train to shoot your Lee Enfield for King and Empire</h2>
+  <P>
+    <A HREF=https://1.bp.blogspot.com/-5sXY88K13Iw/VZH8xT-g2sI/AAAAAAAAC3I/ixcZbCmlZd4/s1600/second-and-first-class-targets.JPG>1909 figure targets</A>
+  <P>
+    <Ul>
+      <li> The first class target at full size is 72 x 72 inches, with a bull ring of 40 inches, and a magpie ring of 56 inches. A <em>prone figure</em> is an aiming mark in the upper half of the bull, offset slightly to the right. This figure had a height of 18 inches and a width of 21 inches.
+	
+      <li> The second class target at full size is 48 x 48 inches with a bull ring of 24 inches, and a magpie ring of 36 inches. A <em>covered figure</em> is an aiming mark in the upper half of the bull, offset slightly to the right. This figure had a height of 12 inches and a width of 12 inches.
+    </UL>
+  <P>
+    <UL>
+    <LI>The Top half was supposed to be covered in gray or green paper
+    <LI>The Bottom half was supposed to be covered in green or brown paper
+    </UL>
+    Presumably both being green at the same time wasn't normal, but who knows what could have happened when the Sergeant sent the detail with paper and paste to make targets.
+ <P>    
+    This target generator makes the correct scoring rings on the page with an approximation of the figures, scaled for what paper you choose.
+  <P>
+    Since many of the paper sizes here are not square, this generator will only print a square equivalent to the smaller paper dimension, leaving out the top and bottom of the page. These will print correctly when printed on a printer with the corresponding size paper, and the printer set to not attempt to scale or shrink / expand the page to fit. If you find a print shop with a 48 inch plotter, they will probably work at 48x48.
+  <P>
+    <HR>
+    <form METHOD=GET ACTION="https://pewpewball.com/cgi-bin/pewpewfigures.cgi">
+      <div>
+	<label for="Class">Desired Target Class? </label>
+        <select id="Class" name="Class">
+            <option value="2" selected>second</option>
+            <option value="1">first</option>
+        </select>
+	<br>
+	<label for="Top">Desired Top Colour? </label>
+        <select id="Top" name="Top">
+            <option value="olive" selected>olive</option>
+            <option value="gray">gray</option>
+            <option value="green">green</option>
+            <option value="tan">tan</option>
+            <option value="bronze">bronze</option>
+        </select>
+	<br>
+	<label for="Bottom">Desired Bottom Colour? </label>
+        <select id="Bottom" name="Bottom">
+            <option value="tan" selected>tan</option>
+            <option value="bronze">bronze</option>
+            <option value="olive">olive</option>
+            <option value="green">green</option>
+            <option value="gray">gray</option>
+        </select>
+      </div>
+      <div>
+	<p> What paper size will you print it on?</p>
+	<input type="radio"
+	       id = "A4"
+	       name = "Paper"
+	       value= "A4">
+	<label for="A4">A4</label>
+	<input type="radio"
+	       id = "Letter"
+	       name = "Paper"
+	       value= "Letter" checked>
+	<label for="Letter">Letter</label>
+	<input type="radio"
+	       id = "11x17"
+	       name = "Paper"
+	       value= "11x17">
+	<label for="11x17">11x17</label>
+	<input type="radio"
+	       id = "A3"
+	       name = "Paper"
+	       value= "A3">
+	<label for="A3">A3</label>
+	<input type="radio"
+	       id = "12x18"
+	       name = "Paper"
+	       value= "12x18">
+	<label for="12x18">12x18</label>
+	<input type="radio"
+	       id = "A2"
+	       name = "Paper"
+	       value= "A2">
+	<label for="A2">A2</label>
+	<input type="radio"
+	       id = "A1"
+	       name = "Paper"
+	       value= "A1">
+	<label for="A1">A1</label>
+	<input type="radio"
+	       id = "24x36"
+	       name = "Paper"
+	       value= "24x36">
+	<label for="24x36">24x36</label>
+	<input type="radio"
+	       id = "A0"
+	       name = "Paper"
+	       value= "A0">
+	<label for="A0">A0</label>
+	<input type="radio"
+	       id = "36x48"
+	       name = "Paper"
+	       value= "36x48">
+	<label for="36x48">36x48</label>
+	<input type="radio"
+	       id = "48x48"
+	       name = "Paper"
+	       value= "48x48">
+	<label for="48x48">48x48</label>
+	<input type="radio"
+	       id = "72x72"
+	       name = "Paper"
+	       value= "72x72">
+	<label for="72x72">72x72</label>
+		<p>Subtract Trim Amount?</p>
+	<input type="radio"
+	       id = "0"
+	       name = "Trim"
+	       value= "0" checked>
+	<label for="0">None</label>
+	<input type="radio"
+	       id = "0.25"
+	       name = "Trim"
+	       value= "0.25">
+	<label for="0.25">0.25 Inches</label>
+	<input type="radio"
+	       id = "0.5"
+	       name = "Trim"
+	       value= "0.5">
+	<label for="0.5">0.5 Inches</label>
+      </div>
+      <input type="hidden" id="Year" name="Year" value="1909">
+      <br>
+      <br>
+      <input type="submit" value="Make Me a 1909 Target!"> 
+    <P>
+</body>
+
+</html>

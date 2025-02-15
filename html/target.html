@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Make Round Targets For Shooting!</title>
+</head>
+
+<body>
+  <h2>Round targets are fun to shoot!</h2>
+  <P>
+    Targets should print at the correct size on the corresponding size
+    paper when the printer is set to the correct size of paper. When printing be sure
+    to select the correct paper size and do not request that the print be scaled or
+    shrank/expanded to fit the page. 
+  <P>
+    Targets will attempt to print up to the full paper size you request.
+    Normally, printers can not print to the full paper size, which
+    can result in your Targets being trimmed slightly on the shorter
+    dimension if you try to fit a large Target on a small page.
+    <HR>
+    <form METHOD=GET ACTION="https://pewpewball.com/cgi-bin/pewpewtarget.cgi">
+      <div>
+	<label for="Diameter">Desired Ball Width?</label>
+        <input type="number" step=".01" id="Diameter" name="Diameter" min="0" max="100000" value="8">
+	<input type="radio"
+	       id = "mm"
+	       name = "Units"
+	       value= "mm">
+	<label for="mm">mm</label>
+	<input type="radio"
+	       id = "Inches"
+	       name = "Units"
+	       value= "inches" checked>
+	<label for="Inches">inches</label>
+      </div>
+      <P>
+      <div>
+	<label for="Colour">Desired Ball Colour? </label>
+        <select id="Colour" name="Colour">
+            <option value="black" selected>black</option>
+            <option value="white">white</option>
+            <option value="gray">gray</option>
+            <option value="blue">blue</option>
+            <option value="navy">navy</option>
+            <option value="red">red</option>
+            <option value="orange">orange</option>
+            <option value="green">green</option>
+            <option value="lime">lime</option>
+            <option value="olive">olive</option>
+            <option value="yellow">yellow</option>
+            <option value="fuchsia">fuchsia</option>
+        </select>
+	<label for="Background">Desired Background Colour? </label>
+        <select id="Background" name="Background">
+            <option value="white" selected>white</option>
+            <option value="black">black</option>
+            <option value="gray">gray</option>
+            <option value="blue">blue</option>
+            <option value="navy">navy</option>
+            <option value="red">red</option>
+            <option value="orange">orange</option>
+            <option value="green">green</option>
+            <option value="lime">lime</option>
+            <option value="olive">olive</option>
+            <option value="yellow">yellow</option>
+            <option value="fuchsia">fuchsia</option>
+        </select>
+      </div>
+
+      <div>
+	<p> What paper size will you print it on?</p>
+	<input type="radio"
+	       id = "A4"
+	       name = "Paper"
+	       value= "A4">
+	<label for="A4">A4</label>
+	<input type="radio"
+	       id = "Letter"
+	       name = "Paper"
+	       value= "Letter" checked>
+	<label for="Letter">Letter</label>
+	<input type="radio"
+	       id = "11x17"
+	       name = "Paper"
+	       value= "11x17">
+	<label for="11x17">11x17</label>
+	<input type="radio"
+	       id = "A3"
+	       name = "Paper"
+	       value= "A3">
+	<label for="A3">A3</label>
+	<input type="radio"
+	       id = "12x18"
+	       name = "Paper"
+	       value= "12x18">
+	<label for="12x18">12x18</label>
+	<input type="radio"
+	       id = "A2"
+	       name = "Paper"
+	       value= "A2">
+	<label for="A2">A2</label>
+	<input type="radio"
+	       id = "A1"
+	       name = "Paper"
+	       value= "A1">
+	<label for="A1">A1</label>
+	<input type="radio"
+	       id = "24x36"
+	       name = "Paper"
+	       value= "24x36">
+	<label for="24x36">24x36</label>
+	<input type="radio"
+	       id = "A0"
+	       name = "Paper"
+	       value= "A0">
+	<label for="A0">A0</label>
+	<input type="radio"
+	       id = "36x48"
+	       name = "Paper"
+	       value= "36x48">
+	<label for="36x48">36x48</label>
+	<input type="radio"
+	       id = "48x48"
+	       name = "Paper"
+	       value= "48x48">
+	<label for="48x48">48x48</label>
+      </div>
+      <br>
+      <br>
+      <input type="submit" value="Make Me a Target!"> 
+    <P>
+    <HR>
+    <P>
+    <em>You should always check your Targets before shooting them.</em>
+    <P>If your Targets are not the desired size, you should try:
+      <ul>
+	<li> Ensuring that when your computer/device sent this to your printer, it was selecting the paper size corresponding to what you selected here.
+	<li> Check your printer's settings to ensure both the printer and the tray in the printer are set to the size of paper that you have selected here. <em>Note that printers are infernal devices, and merely putting the correct size paper in them may not, as you might expect, do this for you.</em>
+	<li> Saving the generated target you get here to a file with the '.pdf' extension and then opening it on your computer to print it directly to your printer, instead of printing it from the web browser you are using right now.
+      </ul>
+    <HR>
+    <P>
+    <em>My Targets are too big for my printer! What do I do?</em>
+    <P>If you don't wish to buy a printer that is large enough to accomodate your Targets, You may be able to take the PDF generated by this page to a print shop which can print on any of the above paper formats. 
+</body>
+
+</html>
