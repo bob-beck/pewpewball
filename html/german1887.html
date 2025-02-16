@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Make German 1887 Musketry Targets!</title>
+</head>
+
+<body>
+  <h2>Train to shoot your Mauser 71/84 fur Kaiser und Vaterland</h2>
+  <em>There is a manual, likeley a terrible english translation.</em>
+      <UL>
+	<LI><A HREF="Schiessvorschrift_fur_die_Infanterie_18.pdf">German 1887 Manual (English Translation)<A>
+      </UL>	      
+   <HR>
+    German 1887 targets were of two types:
+
+    <UL>
+      <LI>The "Band" target with a figure, and two vertical scoring lines on a 1700 x 1200 mm target.
+      <LI>The "Ring" target with the same figure, with 50 mm scoring rings from bull to outer edge, on a 1700 x 1200 mm target with
+	brown verticals on the outer thirds.
+    </ul>
+	  
+  <P>
+    <HR>
+    <form METHOD=GET ACTION="https://pewpewball.com/cgi-bin/pewpewgerman.cgi">
+      <div>
+	<label for="Class">Desired Target? </label>
+        <select id="Class" name="Class">
+            <option value="1" selected>band</option>
+            <option value="2">ring</option>
+        </select>
+      </div>
+      <div>
+	<p> What paper size will you print it on?</p>
+	<input type="radio"
+	       id = "A4"
+	       name = "Paper"
+	       value= "A4">
+	<label for="A4">A4</label>
+	<input type="radio"
+	       id = "Letter"
+	       name = "Paper"
+	       value= "Letter" checked>
+	<label for="Letter">Letter</label>
+	<input type="radio"
+	       id = "11x17"
+	       name = "Paper"
+	       value= "11x17">
+	<label for="11x17">11x17</label>
+	<input type="radio"
+	       id = "A3"
+	       name = "Paper"
+	       value= "A3">
+	<label for="A3">A3</label>
+	<input type="radio"
+	       id = "12x18"
+	       name = "Paper"
+	       value= "12x18">
+	<label for="12x18">12x18</label>
+	<input type="radio"
+	       id = "A2"
+	       name = "Paper"
+	       value= "A2">
+	<label for="A2">A2</label>
+	<input type="radio"
+	       id = "A1"
+	       name = "Paper"
+	       value= "A1">
+	<label for="A1">A1</label>
+	<input type="radio"
+	       id = "24x36"
+	       name = "Paper"
+	       value= "24x36">
+	<label for="24x36">24x36</label>
+	<input type="radio"
+	       id = "A0"
+	       name = "Paper"
+	       value= "A0">
+	<label for="A0">A0</label>
+	<input type="radio"
+	       id = "36x48"
+	       name = "Paper"
+	       value= "36x48">
+	<label for="36x48">36x48</label>
+	<input type="radio"
+	       id = "48x48"
+	       name = "Paper"
+	       value= "48x48">
+	<label for="48x48">48x48</label>
+	<input type="radio"
+	       id = "72x72"
+	       name = "Paper"
+	       value= "72x72">
+	<label for="72x72">72x72</label>
+      </div>
+      <div>
+	<p>Paper Orientation?</p>
+	<input type="radio"
+	       id = "Portrait"
+	       name = "Orientation"
+	       value= "Portrait" checked>
+	<label for="Portrait">Portrait</label>
+	<input type="radio"
+	       id = "Landscape"
+	       name = "Orientation"
+	       value= "Landscape">
+	<label for="Landscape">Landscape</label>
+      </div>
+      <div>
+	<p>Subtract Trim Amount?</p>
+	<input type="radio"
+	       id = "0"
+	       name = "Trim"
+	       value= "0" checked>
+	<label for="0">None</label>
+	<input type="radio"
+	       id = "0.25"
+	       name = "Trim"
+	       value= "0.25">
+	<label for="0.25">0.25 Inches</label>
+	<input type="radio"
+	       id = "0.5"
+	       name = "Trim"
+	       value= "0.5">
+	<label for="0.5">0.5 Inches</label>
+      </div>
+      <input type="hidden" id="Year" name="Year" value="1887">
+      <br>
+      <br>
+      <input type="submit" value="Make Me an 1887 Target!"> 
+    <P>
+</body>
+
+</html>
