@@ -637,7 +637,7 @@ sub make1909Target($$$$$) {
     my @colours = ("black", "white", "red", "lime", "fuchsia", "orange", "blue", "green",
 		   "navy", "yellow", "olive", "gray", "brown", "tan", "bronze");
 
-    my @papers= ("A0", "A1", "A2", "A3", "A4", "Letter", "Legal", "11x17", "12x18", "24x36", "36x48", "48x48", "72x72");
+    my @papers= ("A0", "A1", "A2", "A3", "A4", "Letter", "Legal", "11x17", "12x18", "24x36", "36x36", "36x48", "48x48", "72x72");
 
     die "Paper $paper is not valid"
 	unless (grep(/^$paper$/, @papers));
