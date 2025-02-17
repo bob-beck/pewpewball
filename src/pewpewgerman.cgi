@@ -77,7 +77,7 @@ sub shootat($$$) {
     my ($txt, $distance, $scale) = @_;
     my $metres = round($distance * $scale, 0);
     my $yards = round($metres / YardsPerMetre, 0);
-    $txt->text("Shooting at $metres Metres ($yards Yards) is equivalent to original at $distance Metres");
+    $txt->text("Shooting at $metres M ($yards Yds) is equivalent to original at $distance M");
     $txt->crlf();
 }
 
