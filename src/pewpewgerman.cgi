@@ -199,32 +199,37 @@ sub make1887Target($$$$) {
 
     # Draw our figures on the target in the correct locations. 
     $gfx -> strokecolor("black");
-    german_1887_band($gfx, $x1, $y1, $x2, $y2,  $image_scale);
+    german_1887_band($gfx, $x1 + $delta_w , $y1 + $delta_h, $x2 - $delta_w,
+		     $y2 - $delta_h,  $image_scale);
     if ($class == 2) {
 	# make the brown rectangles on either side
 	$gfx -> strokecolor("tan");
 	$gfx -> fillcolor("tan");
-	$gfx -> rectangle($x1 + $delta_w, $y1 + $delta_h, $x1 + $delta_w + ps(ManBreadthWidth, $image_scale), $y2 - $delta_h);
+	$gfx -> rectangle($x1 + $delta_w, $y1 + $delta_h,
+			  $x1 + $delta_w + ps(ManBreadthWidth, $image_scale),
+			  $y2 - $delta_h);
 	$gfx -> paint();
-	$gfx -> rectangle($x2 - $delta_w, $y1 + $delta_h, $x2 - $delta_w - ps(ManBreadthWidth, $image_scale), $y2 - $delta_h);
+	$gfx -> rectangle($x2 - $delta_w, $y1 + $delta_h,
+			  $x2 - $delta_w - ps(ManBreadthWidth, $image_scale),
+			  $y2 - $delta_h);
 	$gfx -> paint();
 	german_1887_rings($gfx, $x1, $y1, $x2, $y2,  $image_scale);
     } else {
 	# Draw red lines for band hits
 	$gfx -> strokecolor("red");
 	$gfx->move($midx - ps(BandHitWidth / 2, $image_scale), $y1 + $delta_h);
-	$gfx->line($midx - ps(BandHitWidth / 2, $image_scale), $y2 + $delta_h);
+	$gfx->line($midx - ps(BandHitWidth / 2, $image_scale), $y2 - $delta_h);
 	$gfx->stroke();
 	$gfx->move($midx + ps(BandHitWidth / 2, $image_scale), $y1 + $delta_h);
-	$gfx->line($midx + ps(BandHitWidth / 2, $image_scale), $y2 + $delta_h);
+	$gfx->line($midx + ps(BandHitWidth / 2, $image_scale), $y2 - $delta_h);
 	$gfx->stroke();
 	$gfx -> strokecolor("black");
 	# Draw blacklines for Man Breadth
 	$gfx->move($midx - ps(ManBreadthWidth / 2, $image_scale), $y1 + $delta_h);
-	$gfx->line($midx - ps(ManBreadthWidth / 2, $image_scale), $y2 + $delta_h);
+	$gfx->line($midx - ps(ManBreadthWidth / 2, $image_scale), $y2 - $delta_h);
 	$gfx->stroke();
 	$gfx->move($midx + ps(ManBreadthWidth / 2, $image_scale), $y1 + $delta_h);
-	$gfx->line($midx + ps(ManBreadthWidth / 2, $image_scale), $y2 + $delta_h);
+	$gfx->line($midx + ps(ManBreadthWidth / 2, $image_scale), $y2 - $delta_h);
 	$gfx->stroke();
     }
     # Draw lines for outer target boundary, if needed when the paper is taller
