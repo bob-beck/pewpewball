@@ -72,12 +72,16 @@ sub shootat($$$) {
 
 ####
 # 1909 covered figure is 12 inches tall and 12 inches wide
-sub figure_1909_covered($$$$$)
+sub figure_1909_covered($$$$$$)
 {
-    my($gfx, $zx, $zy, $startx, $image_scale,) = @_;
+    my($gfx, $zx, $zy, $startx, $image_scale, $figure_centred) = @_;
     ## 6 ft 1887 figure.
     my $fy = -2;
     my $fx = -4;
+    if ($figure_centred == 1) {
+	$fy = -6;
+	$fx = -5.25; # hat is 8.5 inches, middle is 5.25 inches in.
+    }
     $gfx->move($zx + i2ps($fx, $image_scale), $zy + i2ps($fy, $image_scale));
     #  line from start to y + 2 inches.
     $fy += 2;
@@ -105,12 +109,16 @@ sub figure_1909_covered($$$$$)
 
 ####
 # A 1909 prone figure is 18 inches tall and 21 inches wide
-sub figure_1909_prone($$$$$)
+sub figure_1909_prone($$$$$$)
 {
-    my($gfx, $zx, $zy, $startx, $image_scale,) = @_;
+    my($gfx, $zx, $zy, $startx, $image_scale,$figure_centred) = @_;
     ## 6 ft 1887 figure.
     my $fy = -3;
     my $fx = -7;
+    if ($figure_centred == 1) {
+	$fy = -9;
+	$fx = -7.25; # hat is 8.5 inches, middle is 7.25 inches in.
+    }
     $gfx->move($zx + i2ps($fx, $image_scale), $zy + i2ps($fy, $image_scale));
     #  line from start to y + 3 inches.
     $fy += 3;
@@ -631,8 +639,8 @@ sub make1891Target($$$$$) {
     $pdf -> end;
 }
 
-sub make1909Target($$$$$) {
-    my($paper, $class, $topcolour, $bottomcolour, $trim) = @_;
+sub make1909Target($$$$$$) {
+    my($paper, $class, $topcolour, $bottomcolour, $trim, $figure_centred) = @_;
 
     my @colours = ("black", "white", "red", "lime", "fuchsia", "orange", "blue", "green",
 		   "navy", "yellow", "olive", "gray", "brown", "tan", "bronze");
@@ -741,9 +749,9 @@ sub make1909Target($$$$$) {
     $gfx -> strokecolor("#654321");
     $gfx -> fillcolor("#654321");
     if ($class == 1) {
-	figure_1909_prone($gfx, $midx, $midy, 24, $image_scale);
+	figure_1909_prone($gfx, $midx, $midy, 24, $image_scale, $figure_centred);
     } else {
-	figure_1909_covered($gfx, $midx, $midy, 24, $image_scale);
+	figure_1909_covered($gfx, $midx, $midy, 24, $image_scale, $figure_centred);
     }
 
     # Draw the magpie and bull rings.
@@ -782,6 +790,7 @@ my $Paper = $cgi->param('Paper');
 my $Class = $cgi->param('Class');
 my $Orientation = $cgi->param('Orientation');
 my $Trim = $cgi->param('Trim');
+my $FigureCentred = $cgi->param('FigureCentred');
 
 my $Top = $cgi->param('Top'); 
 my $Bottom = $cgi->param('Bottom'); 
@@ -799,7 +808,7 @@ if ($Year == 1891) {
     $pdfstring = make1891Target($Paper, $Class, $Orientation, $Trim, $Centre);
 }
 if ($Year == 1909) {
-    $pdfstring = make1909Target($Paper, $Class, $Top, $Bottom, $Trim);
+    $pdfstring = make1909Target($Paper, $Class, $Top, $Bottom, $Trim, $FigureCentred);
 }
 print $cgi->header('application/pdf');
 print $pdfstring;
