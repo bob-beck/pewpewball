@@ -36,7 +36,7 @@ use constant A_Bull_Major => 5 * 72;
 use constant A_Inner_Minor => 12 * 72;
 use constant A_Inner_Major => 15 * 72;
 use constant A_Outer_Minor => 20 * 72;
-use constant A_Outer_Major => 29.5 * 72;
+use constant A_Outer_Major => 25 * 72;
 
 use constant B_Width => 72 * 72;
 use constant B_Height => 72 * 72;
