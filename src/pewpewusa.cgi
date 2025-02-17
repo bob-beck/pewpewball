@@ -280,7 +280,7 @@ sub make1889Target($$$$$) {
 	my $right_offset = $scale_width * 3 / 4;
 	if ($class == 0) {
 	    $left_offset = 0;
-	    $right_offset = 0;
+	    $right_offset = $scale_width;
 	}
 	$gfx->rectangle($x1 + $delta_w + $left_offset,
 			$y1 + $delta_h,
