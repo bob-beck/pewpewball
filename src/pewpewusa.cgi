@@ -144,8 +144,8 @@ sub makeUSA1889centre($$$$$$$$$$$$$) {
     }
 }
 
-sub make1889Target($$$$$) {
-    my($paper, $class, $orientation, $trim, $centre) = @_;
+sub make1889Target($$$$) {
+    my($paper, $class, $orientation, $trim) = @_;
 
     my $pdf  = PDF::API2->new;
 
@@ -238,12 +238,6 @@ sub make1889Target($$$$$) {
     $txt->text ("pewpewball.com 1889 USA target $tname, $width_inches X $height_inches inches, original $tinch.");
     $txt->font($pdf->corefont('Helvetica'), 10);
     $txt->crlf();
-    if ($centre == 1) {
-	my $backing_width = round(($real_width * $image_scale) / 72, 2);
-	my $backing_height = round(($real_height * $image_scale) / 72, 2);
-        $txt->text ("This target centre should be in the centre of a $backing_width X $backing_height inch white scoring outer paper");
-	$txt->crlf();
-    }
     $txt->font($pdf->corefont('Helvetica'), 8);
 
     if ($class == 3) {
@@ -299,27 +293,25 @@ sub make1889Target($$$$$) {
 			  $image_scale);
     }
 
-    if ($centre == 0) { 
-	# Draw lines for outer target boundary, if needed when the paper is taller
-	# or wider than the correct target boundary maintaining the correct scale.
-	$gfx -> fillcolor("black");
-	$gfx -> strokecolor("black");
-	if ($delta_h != 0) {
-	    $gfx->move($x1, $y1 + $delta_h);
-	    $gfx->line($x2, $y1 + $delta_h);
-	    $gfx->stroke();
-	    $gfx->move($x1, $y2 - $delta_h);
-	    $gfx->line($x2, $y2 - $delta_h);
-	    $gfx->stroke();
-	}
-	if ($delta_w != 0) {
-	    $gfx->move($x1 + $delta_w, $y1);
-	    $gfx->line($x1 + $delta_w, $y2);
-	    $gfx->stroke();
-	    $gfx->move($x2 - $delta_w, $y1);
-	    $gfx->line($x2 - $delta_w, $y2);
-	    $gfx->stroke();
-	}
+    # Draw lines for outer target boundary, if needed when the paper is taller
+    # or wider than the correct target boundary maintaining the correct scale.
+    $gfx -> fillcolor("black");
+    $gfx -> strokecolor("black");
+    if ($delta_h != 0) {
+	$gfx->move($x1, $y1 + $delta_h);
+	$gfx->line($x2, $y1 + $delta_h);
+	$gfx->stroke();
+	$gfx->move($x1, $y2 - $delta_h);
+	$gfx->line($x2, $y2 - $delta_h);
+	$gfx->stroke();
+    }
+    if ($delta_w != 0) {
+	$gfx->move($x1 + $delta_w, $y1);
+	$gfx->line($x1 + $delta_w, $y2);
+	$gfx->stroke();
+	$gfx->move($x2 - $delta_w, $y1);
+	$gfx->line($x2 - $delta_w, $y2);
+	$gfx->stroke();
     }
 
     return $pdf->to_string();
@@ -336,14 +328,9 @@ my $Class = $cgi->param('Class');
 my $Orientation = $cgi->param('Orientation');
 my $Trim = $cgi->param('Trim');
 
-my $Top = $cgi->param('Top'); 
-my $Bottom = $cgi->param('Bottom'); 
-
-my $Centre = $cgi->param('Centre'); 
-
 my $pdfstring;
 if ($Year == 1889) {
-    $pdfstring = make1889Target($Paper, $Class, $Orientation, $Trim, $Centre);
+    $pdfstring = make1889Target($Paper, $Class, $Orientation, $Trim);
 }
 print $cgi->header('application/pdf');
 print $pdfstring;
