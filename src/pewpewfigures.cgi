@@ -645,11 +645,6 @@ sub make1909Target($$$$$$) {
     my @colours = ("black", "white", "red", "lime", "fuchsia", "orange", "blue", "green",
 		   "navy", "yellow", "olive", "gray", "brown", "tan", "bronze");
 
-    my @papers= ("A0", "A1", "A2", "A3", "A4", "Letter", "Legal", "11x17", "12x18", "24x36", "36x36", "36x48", "48x48", "72x72");
-
-    die "Paper $paper is not valid"
-	unless (grep(/^$paper$/, @papers));
-
     my $pdf  = PDF::API2->new;
 
     # Try to prevent scaling in viewers which may turn into scaling when
@@ -795,7 +790,12 @@ my $FigureCentred = $cgi->param('FigureCentred');
 my $Top = $cgi->param('Top'); 
 my $Bottom = $cgi->param('Bottom'); 
 
-my $Centre = $cgi->param('Centre'); 
+my $Centre = $cgi->param('Centre');
+
+my @papers= ("A0", "A1", "A2", "A3", "A4", "Letter", "Legal", "11x17", "12x18", "24x36", "36x36", "36x48", "48x36", "72x36", "48x48", "64x48", "96x48", "72x72", "96x72", "144x72");
+
+die "Paper $Paper is not valid"
+    unless (grep(/^$Paper$/, @papers));
 
 my $pdfstring;
 if ($Year == 1855) {
