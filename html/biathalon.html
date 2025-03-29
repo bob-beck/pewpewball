@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Make Biathalon Targets!</title>
+</head>
+
+<body>
+  <h2>Train to shoot your .22 while breathing very hard</h2>
+  <P>
+    A friend of mine informs me of the standard dimensions for biathalon
+    targets. They are:
+    <UL>
+      <li>When standing, a circular 115 mm window in a white box allowing a black steel behind to be knocked down.
+      <LI>When prone, a circular 45 mm hole in a 115 mm black insert in the above, allowing the steel behind to be knocked down for a hit in the 45 mm middle of the 115 mm black aiming point.
+    </UL>
+  <P>
+    
+  <P>
+    Since doing ridiculous levels of athleticism and still hitting anything is kind of cool, I figure I would like to know how I stack up against this at different distances, so this allows them to be printed at the official size as well as scaling to different distances.
+    <HR>
+
+    <form METHOD=GET ACTION="https://pewpewball.com/cgi-bin/pewpewbiathalon.cgi">
+      Which type of target?
+        <div>
+	<input type="radio"
+	       id = "standing"
+	       name = "Type"
+	       value= "standing" checked>
+	<label for="standing">Standing with Prone Score Ring</label>
+	<input type="radio"
+	       id = "prone"
+	       name = "Type"
+	       value= "prone">
+	<label for="prone">Prone Centre Only</label>
+	</div>
+	<BR>
+	<label for="Paper">What paper size will you print it on</label>
+	<div>
+        <select id="Paper" name="Paper">
+            <option value="A4">A4</option>
+            <option value="Letter" selected>Letter</option>
+            <option value="11x17">11x17</option>
+            <option value="A3">A3</option>
+            <option value="12x18">12x18</option>
+            <option value="A2">A2</option>
+            <option value="18x24">18x24</option>
+            <option value="A1">A1</option>
+            <option value="24x36">24x36</option>
+            <option value="A0">A0</option>
+        </select>
+	</div>
+	<div>
+	<BR>
+	<label for="Metres">What distance will you shoot at?</label>
+        <select id="Metres" name="Metres">
+            <option value="3" selected>3 Metres</option>
+            <option value="5" selected>5 Metres</option>
+            <option value="10" selected>10 Metres</option>
+            <option value="15" selected>15 Metres</option>
+            <option value="22.86" selected>25 Yards</option>
+            <option value="25" selected>25 Metres</option>
+            <option value="36.58">40 Yards</option>
+            <option value="40">40 Metres</option>
+            <option value="45.72" selected>50 Yards</option>
+            <option value="50" selected>50 Metres</option>
+            <option value="100">100 Metres</option>
+            <option value="125">125 Metres</option>
+            <option value="150">150 Metres</option>
+            <option value="175">175 Metres</option>
+            <option value="200">200 Metres</option>
+            <option value="300">300 Metres</option>
+            <option value="400">400 Metres</option>
+            <option value="500">500 Metres</option>
+        </select>
+      </div>
+      <input type="submit" value="Make me a Biathalon Target!"> 
+    <P>
+</body>
+
+</html>
+
+</body>
+
+</html>
