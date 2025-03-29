@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Make CHAS Service Rifle Targets!</title>
+</head>
+<body>
+  <h2>Make a CHAS service Rifle Target</h2>
+   Welcome to the target generator for CHAS Service rifle league.
+  <P>
+    These targets should print at the correct size on the corresponding size
+    paper when the printer is set to the correct size of paper.<BR> <STRONG><EM>When printing be sure
+    to select the correct paper size and do not request that the print be scaled or
+    <A HREF="https://www.youtube.com/shorts/79S6bswOYLI">shrunk</A>/expanded to fit the page.</EM></STRONG> 
+  <P>
+    <UL>
+      <LI> The standard centrefire match target is shot at 200 and 300M, and must be printed on 18x24 paper.
+      <LI> The standard rimfire match uses two different targets:
+	<UL>
+	  <LI> When the centrefire match shoots at 200M, rimfire shoots a target at 50M scaled to match the size of the centrefire target at 200M. It must be printed on Letter paper.
+	  <LI> When the centrefire match shoots at 300M, rimfire shoots a target at 100M scaled to match the size of the centrefire target at 300M. It must be printed on Letter paper.
+	</UL>
+    </UL>
+  <P>
+    We have one match of the year, the "Norway" match, where all target sizes are reduced by 2/3 (For both centrefire and rimfire). The centrefire target is printed on 11x17 paper, and the rimfire targets on Letter paper. 
+  <P>
+    We also have a special "303" match that shoots on <A HREF="1909.html">historical British 1909 Musketry targets.</A>
+    <HR>    
+    <form METHOD=GET ACTION="https://pewpewball.com/cgi-bin/pewpewchas.cgi">
+      <label for="Paper">What target would you like to print?</label>
+      <select id="CHAS" name="CHAS">
+        <option value="Centrefire">centrefire target (prints on 18x24)</option>
+        <option value="Rimfire-100">rimfire 100 M target (scale 100/300) (prints on Letter)</option>
+        <option value="Rimfire-50">rimfire 50 M target (scale 50/200) (prints on Letter)</option>
+        <option value="Norway">Norway match centrefire target (scale 2/3) (prints on 11x17)</option>
+        <option value="Norway-Rimfire-100">Norway match rimfire 100 M target (scale 66.7/300) (prints on Letter)</option>
+        <option value="Norway-Rimfire-50">Norway match rimfire 50 M target (scale 33.3/200) (prints on Letter)</option>
+        <option value="100M-500">100 M practice target for 500 M (prints on Letter)</option>
+        <option value="100M-200">100 M practice target for 200 M (prints on Legal)</option>
+        <option value="50M-300">50 M practice target for 300 M (prints on Letter)</option>
+        <option value="40Y-300">40 yard practice target for 300 M (prints on Letter)</option>
+        <option value="40Y-200">40 yard practice target for 200 M (prints on Letter)</option>
+        <option value="25Y-300">25 yard practice target for 300 M (prints on Letter)</option>
+        <option value="25Y-200">25 yard practice target for 200 M (prints on Letter)</option>
+      </select>
+      <P>
+      <input type="submit" value="Make Me an CHAS Service Rifle Target!"> 
+      <P>
+	Targets will print the intended V ring and target dimensions in
+	millimeters on the target. <EM>Always check that your target has printed
+	with the correct dimensions before shooting it.</EM>
+	<HR>
+	<H3><A HREF="https://ichef.bbci.co.uk/images/ic/1376xn/p047q9w7.jpg">Troubleshooting</A></H3>
+	If you have difficulty getting targets you generate here to print nicely, remember to try:
+	<ul>
+	  <li> Ensuring that when your computer/device sends a target to your printer, it does not select scaling or "fit to page" which will make the printer change the target size.
+	  <li> Ensuring that when your computer/device sends a target to your printer, it selects the paper size corresponding to what you selected when generating the target..
+	  <li> Checking your printer's settings to ensure that both the printer and the tray in the printer are set to the size of paper that you selected when generating the target. <em>Note that printers are infernal devices, and merely putting the correct size paper in them may not, as you might expect, do this for you.</em>
+	  <li> Saving the generated target you generate here to a file with the '.pdf' extension and then opening it on your computer to print it directly to your printer, instead of printing it from the web browser you are using right now.
+	</ul>
+	<HR>
+	<A HREF=https://github.com/bob-beck/pewpewball/>The target generator programs are open source, and available on github</A>
+</body>
+
+</html>
